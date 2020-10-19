@@ -12,6 +12,28 @@ let snake = [];
 snake[0] = {
   x: Math.floor((gridSize/2)*gridUnit), y:Math.floor((gridSize/2)*gridUnit)
 }
+//initializing directional logic
+let movment;
+document.addEventListener('keydown',direction);
+//creating input function
+function direction(input){
+  //move left
+  if(input.keyCode == 37){
+    movment = "LEFT";
+  }
+  //move up
+  if(input.keyCode == 38){
+    movment = "UP";
+  }
+  //move right
+  if(input.keyCode == 39){
+    movment = "RIGHT";
+  }
+  //move down
+  if (input.keyCode == 40){
+    movment = "DOWN";
+  }
+}
 
 //creating a background
 function draw(){
@@ -24,6 +46,22 @@ function draw(){
     ctx.fillStyle='green';
     //initializing the position for the snake
     ctx.fillRect(snake[0].x, snake[0].y, gridUnit,gridUnit);
+  }
+  //move the snake
+  let head = snake[0].x;
+  let tail = snake[0].y;
+
+  if (movment == "LEFT") {
+    snake[0].x -= gridUnit;
+  }
+  if (movment == "UP") {
+    snake[0].y -= gridUnit;
+  }
+  if (movment == "RIGHT") {
+    snake[0].x += gridUnit;
+  }
+  if (movment == "DOWN") {
+    snake[0].y += gridUnit;
   }
 
 }

@@ -1,0 +1,5 @@
+/* modifying the canvas */
+canvas{
+  border-style: solid;
+  border-color: red;
+}

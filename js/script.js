@@ -53,8 +53,8 @@ function draw(){
   ctx.fillRect(gridUnit,gridUnit,gridSize*gridUnit-gridUnit,gridSize*gridUnit-gridUnit);
   //drawing the snake when the length increases
   for(let i=0; i<snake.length;i++){
-    ctx.fillStyle='yellow';
-    //initializing the position for the snake
+    ctx.fillStyle='grey';
+    //drawing snake on the position
     ctx.fillRect(snake[i].x, snake[i].y, gridUnit,gridUnit);
   }
   //move the snake
@@ -84,11 +84,11 @@ function draw(){
   }else {
     snake.pop();
   }
-
+  //outputting the score
   document.querySelector("#score").innerText = score;
   //updating the size of the snake
   let updateSnake = {x:pointX,y:pointY};
-
+  //checks to see if snake crashes
   function collision(head,array){
     for(let i = 0; i <array.length; i++){
       if (head.x == array[i].x && head.y == array[i].y){
@@ -97,18 +97,18 @@ function draw(){
     }
     return false;
   }
+  //checks if snake can keep moving
   if (pointX < gridUnit || pointY < gridUnit ||
         pointX > gridmod || pointY > gridmod || collision(updateSnake, snake)) {
           clearInterval(game);
 
   }
-   snake.unshift(updateSnake);
+  //allows new head to be added to snake
+  snake.unshift(updateSnake);
   //creates the icon for the food and the location
-  ctx.fillStyle = 'white';
+  ctx.fillStyle = 'orange';
   ctx.fillRect(food.x,food.y,gridUnit, gridUnit);
 
 }
-
-
 
 let game = setInterval(draw,100);

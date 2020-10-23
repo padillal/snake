@@ -1,7 +1,38 @@
+/* modifying title */
+body{
+  background-color: black;
+}
+h1{
+  text-align: center;
+  color: white;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+}
+h3{
+  text-align: center;
+  font-style: italic;
+  color: white;
+}
 /* modifying the canvas */
 canvas{
+  position:relative;
+  background-color: darkblue;
   border-style: solid;
-  border-color: red;
+  border-color: black;
   display: flex;
   margin: 0 auto;
+}
+div{
+  position:relative;
+  padding-top: 1%;
+  padding-left:33%;
+  display: flex;
+  color: white;
+  font-family: Verdana, Geneva, sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
 }
